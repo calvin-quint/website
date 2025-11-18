@@ -1,74 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Docs • Calvin Quint</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    /* same CSS as index, shortened for brevity */
-    /* copy the entire <style> block from index.html and reuse here */
-  </style>
+<meta charset="UTF-8" />
+<title>Docs • Calvin Quint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- 🔥 SAME CSS FROM index.html (copied EXACTLY) -->
+<style>
+  :root {
+      --bg: #05070a;
+      --bg-elevated: #0b0f18;
+      --bg-soft: #131824;
+      --accent: #4f9cff;
+      --accent-soft: rgba(79, 156, 255, 0.16);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --radius-lg: 20px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --shadow-soft-small: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+  }
+
+  /* NAVBAR */
+  .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(15,23,42,0.95), rgba(2,6,23,0.95));
+      border-bottom: 1px solid rgba(148,163,184,0.2);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  }
+
+  .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .nav-left {
+      color: #e5e7eb;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+  }
+
+  .nav-links a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 4px;
+      transition: .2s ease;
+  }
+
+  .nav-links a.active,
+  .nav-links a:hover {
+      color: var(--text-main);
+  }
+
+  .nav-links a.active::after,
+  .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: var(--accent);
+      border-radius: 99px;
+  }
+
+  /* CONTENT WRAPPER */
+  .page {
+      max-width: 1080px;
+      margin: 40px auto;
+      padding: 20px;
+  }
+
+  /* GLASS PANEL (Matches index hero box) */
+  .panel {
+      background: linear-gradient(135deg, #0b1220, #09101a, #0a0f19);
+      border: 1px solid rgba(148,163,184,0.25);
+      box-shadow: var(--shadow-soft);
+      border-radius: 24px;
+      padding: 38px 32px;
+  }
+
+  h1 {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+  }
+
+  p {
+      color: var(--text-muted);
+      max-width: 42rem;
+      margin-bottom: 24px;
+  }
+
+  /* GRID OF CATEGORY CARDS */
+  .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 12px;
+  }
+
+  .card {
+      background: rgba(255,255,255,0.02);
+      padding: 22px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.16);
+      backdrop-filter: blur(14px);
+      transition: 0.2s ease;
+  }
+
+  .card:hover {
+      border-color: var(--accent);
+      background: rgba(79,156,255,0.06);
+      transform: translateY(-2px);
+  }
+
+  .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+  }
+
+  .card p {
+      font-size: 0.92rem;
+      line-height: 1.4;
+  }
+</style>
 </head>
+
 <body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <div class="nav-left">Calvin Quint</div>
+<header class="navbar">
+  <div class="nav-inner">
+      <div class="nav-left">CALVIN QUINT</div>
       <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="docs.html" class="nav-link active">Docs</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="resume.html" class="nav-link">Resume</a>
+          <a href="index.html">Home</a>
+          <a href="docs.html" class="active">Docs</a>
+          <a href="projects.html">Projects</a>
+          <a href="resume.html">Resume</a>
       </nav>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <main class="page">
-    <section style="margin-top: 36px;">
-      <h1 style="font-size: 1.8rem; margin-bottom: 6px;">Documentation Library</h1>
-      <p style="color:#9ca3af; font-size:0.97rem; max-width:40rem; margin-bottom:24px;">
-        High-signal notes, configs, and queries that I actually use: tuned policies, 
-        incident response workflows, and repeatable procedures.
-      </p>
-    </section>
+<main class="page">
+  <section class="panel">
+      <h1>Documentation Library</h1>
+      <p>Your full library of notes, scripts, baselines, detections, and troubleshooting steps — designed as a long-term knowledge base.</p>
 
-    <section
-      style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:22px;
-        margin-top:10px;
-      "
-    >
-      <article class="card">
-        <h2>Microsoft Intune</h2>
-        <p>Configuration profiles, baselines, custom detection scripts, and registry tweaks.</p>
-      </article>
+      <div class="card-grid">
+          <div class="card">
+              <h2>Microsoft Intune</h2>
+              <p>Profiles, detection rules, remediation scripts, baselines, hardening, troubleshooting.</p>
+          </div>
 
-      <article class="card">
-        <h2>Defender for Endpoint</h2>
-        <p>KQL hunting queries, custom detections, remediation playbooks, and exclusions strategy.</p>
-      </article>
+          <div class="card">
+              <h2>Defender for Endpoint</h2>
+              <p>KQL queries, alert analysis, threat hunting, exclusions, response steps.</p>
+          </div>
 
-      <article class="card">
-        <h2>Azure / Entra / Sentinel</h2>
-        <p>Conditional Access, sign-in analysis, Sentinel connectors, and workbook notes.</p>
-      </article>
+          <div class="card">
+              <h2>Azure / Entra / Sentinel</h2>
+              <p>Conditional Access, identity analysis, logs, Sentinel connectors and DCRs.</p>
+          </div>
 
-      <article class="card">
-        <h2>Incident Response</h2>
-        <p>KAPE collections, forensic triage steps, evidence gathering, and timeline building.</p>
-      </article>
+          <div class="card">
+              <h2>Incident Response</h2>
+              <p>KAPE flow, forensic artifacts, rapid triage, containment playbooks.</p>
+          </div>
 
-      <article class="card">
-        <h2>Homelab & Backup</h2>
-        <p>Rocky Linux server builds, rclone to S3/E2, TrueNAS plans, and Nextcloud setup.</p>
-      </article>
+          <div class="card">
+              <h2>Homelab & Storage</h2>
+              <p>Rocky Linux, TrueNAS, Docker, rclone automation, E2 backups.</p>
+          </div>
 
-      <article class="card">
-        <h2>Networking & FortiGate</h2>
-        <p>Firewall rules, Azure FortiGate lab notes, VPN setups, and Zero Trust concepts.</p>
-      </article>
-    </section>
-  </main>
+          <div class="card">
+              <h2>Networking / FortiGate</h2>
+              <p>VPN tunnels, routing, firewall labs, Zero Trust experiments.</p>
+          </div>
+      </div>
+
+  </section>
+</main>
+
 </body>
 </html>
