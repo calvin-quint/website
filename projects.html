@@ -5,61 +5,212 @@
 <title>Projects • Calvin Quint</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- SAME CSS AS ABOVE (identical to index + docs) -->
 <style>
-  /* 🔥 Use the exact same CSS block from docs.html */
+/* SAME CSS AS INDEX — FULL THEME */
+:root {
+  --bg: #05070a;
+  --accent: #4f9cff;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --rad-lg: 26px;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.45);
+  --shadow-small: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(18px);
+  background: rgba(10,12,20,0.88);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(148,163,184,0.22);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  z-index: 50;
+}
+
+.nav-inner {
+  max-width: 1080px;
+  margin: auto;
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  color: #e5e7eb;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 26px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: .2s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0; 
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* PAGE WRAPPER */
+.page {
+  max-width: 1080px;
+  margin: 40px auto 60px;
+  padding: 20px;
+}
+
+/* GLASS PANEL */
+.panel {
+  background: linear-gradient(135deg, rgba(22,26,38,0.75), rgba(10,12,18,0.65));
+  border: 1px solid rgba(148,163,184,0.25);
+  border-radius: var(--rad-lg);
+  padding: 48px 42px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+/* HEADINGS */
+h1 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+p {
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 46rem;
+}
+
+/* GRID OF PROJECT CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 22px 24px;
+  backdrop-filter: blur(16px);
+  transition: .2s ease;
+}
+
+.card:hover {
+  background: rgba(79,156,255,0.10);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
 </style>
+
 </head>
 
 <body>
+
+<!-- NAV -->
 <header class="navbar">
   <div class="nav-inner">
-      <div class="nav-left">CALVIN QUINT</div>
-      <nav class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="docs.html">Docs</a>
-          <a href="projects.html" class="active">Projects</a>
-          <a href="resume.html">Resume</a>
-      </nav>
+    <div class="nav-left">CALVIN QUINT</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="resume.html">Resume</a>
+    </nav>
   </div>
 </header>
 
+<!-- PAGE CONTENT -->
 <main class="page">
+
   <section class="panel">
-      <h1>Projects</h1>
-      <p>A collection of hands-on work across Azure, Intune, Sentinel, Defender, FortiGate, Linux, backups, and homelab engineering.</p>
+    <h1>Projects</h1>
+    <p>A collection of hands-on work across Azure, Intune, Sentinel, Defender, FortiGate, Linux, backups, and homelab engineering.</p>
 
-      <div class="card-grid">
-          <div class="card">
-              <h2>Sentinel CloudAppEvents Ingestion</h2>
-              <p>Custom DCR ingesting CloudAppEvents to detect exfiltration behavior across SaaS services.</p>
-          </div>
+    <div class="card-grid">
 
-          <div class="card">
-              <h2>Intune Security Baseline</h2>
-              <p>Custom hardening baseline with PowerShell remediation, detection rules, and elevation controls.</p>
-          </div>
-
-          <div class="card">
-              <h2>Rocky Linux Backup Automation</h2>
-              <p>rclone incremental backup system pushing to E2 with monitoring and log rotation.</p>
-          </div>
-
-          <div class="card">
-              <h2>Nextcloud AIO Deployment</h2>
-              <p>Docker-based deployment with HTTPS, external storage optimization, and performance tuning.</p>
-          </div>
-
-          <div class="card">
-              <h2>FortiGate Azure Lab</h2>
-              <p>Firewall policies, IPsec tunnels, routing, segmentation, and WAN failover experiments.</p>
-          </div>
-
-          <div class="card">
-              <h2>Cloudflare Zero Trust</h2>
-              <p>Tunnels, identity policies, device posture rules, and secure remote access to lab services.</p>
-          </div>
+      <div class="card">
+        <h2>Sentinel CloudAppEvents Ingestion</h2>
+        <p>Custom DCR ingesting CloudAppEvents to detect exfiltration behavior across SaaS platforms.</p>
       </div>
+
+      <div class="card">
+        <h2>Intune Security Baseline</h2>
+        <p>Hardened baselines with PowerShell remediation, detection scripts, and device restrictions.</p>
+      </div>
+
+      <div class="card">
+        <h2>Rocky Linux Backup Automation</h2>
+        <p>Incremental rclone backup system pushing to E2/S3 with logging and alerting.</p>
+      </div>
+
+      <div class="card">
+        <h2>Nextcloud AIO Deployment</h2>
+        <p>Docker deployment with SSL, storage optimization, app hardening, and reverse proxy config.</p>
+      </div>
+
+      <div class="card">
+        <h2>FortiGate Azure Lab</h2>
+        <p>IPsec tunnels, NGFW rules, routing experiments, and WAN failover design.</p>
+      </div>
+
+      <div class="card">
+        <h2>Cloudflare Zero Trust</h2>
+        <p>Tunnels, identity routing, posture checks, and secure remote access to lab services.</p>
+      </div>
+
+    </div>
 
   </section>
 </main>
