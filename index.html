@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home • Calvin Quint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #05070a;
+      --bg-elevated: #0b0f18;
+      --bg-soft: #131824;
+      --accent: #4f9cff;
+      --accent-soft: rgba(79, 156, 255, 0.16);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --radius-lg: 14px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --shadow-soft-small: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.95),
+        rgba(2, 6, 23, 0.95)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-left {
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.18s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      border-radius: 99px;
+      transition: width 0.18s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* LAYOUT WRAPPER */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 40px;
+      padding: 32px 26px 34px;
+      border-radius: 24px;
+      background: radial-gradient(
+          circle at top left,
+          rgba(79, 156, 255, 0.2),
+          transparent 55%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(45, 212, 191, 0.16),
+          transparent 60%
+        ),
+        linear-gradient(135deg, #020617, #020617, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.25rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 32rem;
+      margin-bottom: 22px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: transform 0.16s ease, box-shadow 0.16s ease,
+        border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #020617;
+      box-shadow: var(--shadow-soft-small);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: rgba(148, 163, 184, 0.5);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      box-shadow: var(--shadow-soft-small);
+    }
+
+    .hero-aside {
+      border-radius: 20px;
+      background: radial-gradient(
+          circle at top,
+          rgba(79, 156, 255, 0.22),
+          transparent 60%
+        ),
+        var(--bg-elevated);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 16px 18px 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+    }
+
+    .hero-aside-title {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .hero-aside-list {
+      list-style: none;
+      font-size: 0.86rem;
+      display: grid;
+      gap: 6px;
+      color: var(--text-main);
+    }
+
+    .hero-aside-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(55, 65, 81, 0.7);
+    }
+
+    .hero-aside-label {
+      color: var(--text-muted);
+    }
+
+    .hero-aside-value {
+      font-weight: 500;
+    }
+
+    @media (max-width: 800px) {
+      .nav-inner {
+        padding-inline: 16px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px 24px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-buttons {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">Calvin Quint</div>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="docs.html" class="nav-link">Docs</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">Technical Documentation Hub</h1>
+        <p class="hero-subtitle">
+          A living knowledge base for cybersecurity, cloud infrastructure, Intune,
+          incident response, and homelab experiments.
+        </p>
+        <div class="hero-pills">
+          <span class="pill">Microsoft 365 / Intune</span>
+          <span class="pill">Defender & KQL</span>
+          <span class="pill">Azure / Entra</span>
+          <span class="pill">FortiGate & Networking</span>
+          <span class="pill">Rocky Linux Homelab</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="docs.html" class="btn btn-primary">Explore Docs</a>
+          <a href="projects.html" class="btn btn-secondary">View Projects</a>
+        </div>
+      </div>
+
+      <aside class="hero-aside">
+        <div class="hero-aside-title">Focus Areas</div>
+        <ul class="hero-aside-list">
+          <li>
+            <span class="hero-aside-label">Current Role</span>
+            <span class="hero-aside-value">Security & Infrastructure</span>
+          </li>
+          <li>
+            <span class="hero-aside-label">Primary Stack</span>
+            <span class="hero-aside-value">Azure • Entra • Intune • MDE</span>
+          </li>
+          <li>
+            <span class="hero-aside-label">Lab</span>
+            <span class="hero-aside-value">Rocky, TrueNAS, FortiGate, Docker</span>
+          </li>
+          <li>
+            <span class="hero-aside-label">Use Cases</span>
+            <span class="hero-aside-value">IR, detections, hardening, backups</span>
+          </li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
