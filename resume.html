@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Resume • Calvin Quint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+/* ============================================
+   GLOBAL THEME — MATCHES index.html EXACTLY
+   ============================================ */
+
+:root {
+  --bg: #05070a;
+  --accent: #4f9cff;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --rad-lg: 26px;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.45);
+  --shadow-small: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(18px);
+  background: rgba(10,12,20,0.88);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(148,163,184,0.22);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  z-index: 50;
+}
+
+.nav-inner {
+  max-width: 1080px;
+  margin: auto;
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  color: #e5e7eb;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 26px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: .2s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0; 
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* PAGE WRAPPER */
+.page {
+  max-width: 1080px;
+  margin: 40px auto 60px;
+  padding: 20px;
+}
+
+/* HERO BOX (GLASS PANEL MATCHING INDEX) */
+.hero-box {
+  background: linear-gradient(135deg, rgba(22,26,38,0.75), rgba(10,12,18,0.65));
+  border: 1px solid rgba(148,163,184,0.25);
+  border-radius: var(--rad-lg);
+  padding: 60px 42px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  backdrop-filter: blur(16px);
+}
+
+/* TITLES */
+.hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  color: var(--text-main);
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.85;
+}
+
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin: 20px 0 32px;
+}
+
+.socials a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: .2s ease;
+}
+
+.socials a:hover {
+  background: rgba(79,156,255,0.15);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* BUTTONS */
+.btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: .2s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-small);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.03);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+
+/* DESCRIPTION PARAGRAPH */
+.hero-description {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+  <div class="nav-inner">
+    <div class="nav-left">CALVIN QUINT</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="docs.html">Docs</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html" class="active">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- MAIN HERO PANEL -->
+  <section class="hero-box">
+
+    <h1 class="hero-title">Button Pusher</h1>
+    <div class="hero-subtitle">Security & Infrastructure Engineer</div>
+
+    <p class="hero-description">
+      I build, break, secure, automate, and occasionally resurrect systems 
+      across Intune, Azure, Defender, and Linux. My work focuses on endpoint 
+      security, cloud identity, detection engineering, backups, and keeping 
+      things running when they really don’t want to.
+    </p>
+
+    <!-- SOCIAL ICONS -->
+    <div class="socials">
+      <a href="https://github.com/USERNAME" title="GitHub">🐙</a>
+      <a href="https://linkedin.com/in/USERNAME" title="LinkedIn">💼</a>
+      <a href="mailto:YOUR_EMAIL" title="Email">✉️</a>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="btn-row">
+      <a href="resume.pdf" class="btn btn-primary">Download Resume</a>
+      <a href="mailto:YOUR_EMAIL" class="btn btn-secondary">Contact</a>
+    </div>
+
+  </section>
+
+</main>
+
+</body>
+</html>
