@@ -1,73 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Projects • Calvin Quint</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    /* paste the SAME CSS <style> block from index.html here */
-  </style>
+<meta charset="UTF-8" />
+<title>Projects • Calvin Quint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- SAME CSS AS ABOVE (identical to index + docs) -->
+<style>
+  /* 🔥 Use the exact same CSS block from docs.html */
+</style>
 </head>
+
 <body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <div class="nav-left">Calvin Quint</div>
+<header class="navbar">
+  <div class="nav-inner">
+      <div class="nav-left">CALVIN QUINT</div>
       <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="docs.html" class="nav-link">Docs</a>
-        <a href="projects.html" class="nav-link active">Projects</a>
-        <a href="resume.html" class="nav-link">Resume</a>
+          <a href="index.html">Home</a>
+          <a href="docs.html">Docs</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="resume.html">Resume</a>
       </nav>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <main class="page">
-    <section style="margin-top: 36px;">
-      <h1 style="font-size: 1.8rem; margin-bottom: 6px;">Projects</h1>
-      <p style="color:#9ca3af; font-size:0.97rem; max-width:40rem; margin-bottom:24px;">
-        Selected hands-on work from my homelab and daily job that ties together cloud, security,
-        automation, and networking.
-      </p>
-    </section>
+<main class="page">
+  <section class="panel">
+      <h1>Projects</h1>
+      <p>A collection of hands-on work across Azure, Intune, Sentinel, Defender, FortiGate, Linux, backups, and homelab engineering.</p>
 
-    <section
-      style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:22px;
-        margin-top:10px;
-      "
-    >
-      <article class="card">
-        <h2>Sentinel CloudAppEvents Ingestion</h2>
-        <p>Custom DCR and data connector to ingest CloudAppEvents into Sentinel for exfil detection.</p>
-      </article>
+      <div class="card-grid">
+          <div class="card">
+              <h2>Sentinel CloudAppEvents Ingestion</h2>
+              <p>Custom DCR ingesting CloudAppEvents to detect exfiltration behavior across SaaS services.</p>
+          </div>
 
-      <article class="card">
-        <h2>Intune Security Baseline</h2>
-        <p>Hardened Windows baseline with detection rules, elevation controls, and reporting.</p>
-      </article>
+          <div class="card">
+              <h2>Intune Security Baseline</h2>
+              <p>Custom hardening baseline with PowerShell remediation, detection rules, and elevation controls.</p>
+          </div>
 
-      <article class="card">
-        <h2>Rocky Linux Backup with rclone</h2>
-        <p>Incremental backups from shares and home directories to E2 / S3 with logging.</p>
-      </article>
+          <div class="card">
+              <h2>Rocky Linux Backup Automation</h2>
+              <p>rclone incremental backup system pushing to E2 with monitoring and log rotation.</p>
+          </div>
 
-      <article class="card">
-        <h2>Nextcloud AIO Deployment</h2>
-        <p>Docker-based deployment with SSL, external storage, and reverse proxy integration.</p>
-      </article>
+          <div class="card">
+              <h2>Nextcloud AIO Deployment</h2>
+              <p>Docker-based deployment with HTTPS, external storage optimization, and performance tuning.</p>
+          </div>
 
-      <article class="card">
-        <h2>FortiGate Azure Lab</h2>
-        <p>Lab environment simulating production-style routing, policies, and IPsec tunnels.</p>
-      </article>
+          <div class="card">
+              <h2>FortiGate Azure Lab</h2>
+              <p>Firewall policies, IPsec tunnels, routing, segmentation, and WAN failover experiments.</p>
+          </div>
 
-      <article class="card">
-        <h2>Zero Trust Access with Cloudflare</h2>
-        <p>Cloudflare Tunnel and Zero Trust policies to securely expose lab services.</p>
-      </article>
-    </section>
-  </main>
+          <div class="card">
+              <h2>Cloudflare Zero Trust</h2>
+              <p>Tunnels, identity policies, device posture rules, and secure remote access to lab services.</p>
+          </div>
+      </div>
+
+  </section>
+</main>
+
 </body>
 </html>
